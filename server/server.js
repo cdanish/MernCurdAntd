@@ -12,7 +12,7 @@ import studentRourter from "./router/studentRouter.js";
 dotenv.config();
 
 //port
-const port = process.env.PORT;
+const port = "8080";
 
 //app
 const app = express();
