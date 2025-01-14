@@ -61,7 +61,7 @@ function StudentTable() {
                 loading={loading}
                 dataSource={students}
                 columns={columns}
-                rowKey={(record) => record?._id || record?.sid} // Ensure unique rowKey
+                rowKey={(record) => record?._id } // Ensure unique rowKey
             />
         </div>
     );

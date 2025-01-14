@@ -6,7 +6,7 @@ import Tilte from "../components/title";
 import { useSelector, useDispatch } from "react-redux";
 import { allClassesReducer, addStudents } from '../redux/features/studentSlice';
 import { toast } from "react-hot-toast";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
 
 
 const initialStudent = {
@@ -21,6 +21,7 @@ function addStudent() {
   const { loading, allClasses } = useSelector((state) => state.student);
   // console.log(allClasses);
 
+  
 
   //initailstudate
   const [sdata, setSdata] = useState(initialStudent);
@@ -64,7 +65,8 @@ function addStudent() {
       return toast.error("please fill all details");
     }
 
-    //console.log(sdata);
+  
+   
     dispatch(addStudents({ sdata, toast, navigate }));
 
 

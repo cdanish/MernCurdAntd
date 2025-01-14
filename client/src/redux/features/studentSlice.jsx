@@ -102,11 +102,11 @@ export const updateStudentData = createAsyncThunk(
     'student/updateStudent',async({id,sdata,toast,navigate},{rejectWithValue}) =>{
         try{
 
-            console.log(id,sdata,toast,navigate);
+            //console.log(id,sdata);
             const response = await api.updateStudent(sdata,id);
 
-            console.log(response);
-            toast("updated Student Data");
+           // console.log(response);
+            toast.success("updated Student Data");
             navigate("/");
 
             return response?.data;
@@ -184,7 +184,7 @@ const studentSlice = createSlice({
             })
             .addCase(addStudents.fulfilled, (state, action) => {
                 state.loading = false;
-                state.students = [action.payload];
+                //state.students = [action.payload];
             })
             .addCase(addStudents.rejected, (state, action) => {
                 state.loading = false;
@@ -216,7 +216,7 @@ const studentSlice = createSlice({
             })
             .addCase(updateStudentData.fulfilled,(state,action)=>{
                 const {id} = action.meta.arg;
-                console.log(id);
+               
                 if(id){
                     state.loading= false;
                     state.students = state.students.map((student) =>
