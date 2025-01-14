@@ -39,7 +39,8 @@ app.get("/",(req,res)=>{
 app.use("/api",classRouter);
 app.use("/api",studentRourter);
 
-app.listen(port,()=>{
-    console.log(`server running on ${port}`);
-})
+// app.listen(port,()=>{
+//     console.log(`server running on ${port}`);
+// })
 
+export default app;
