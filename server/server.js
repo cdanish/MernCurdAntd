@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import connectDb  from "./lib/db.js";
 import classRouter from "./router/classRouter.js";
 import studentRourter from "./router/studentRouter.js";
-import { createServer } from '@vercel/node';
+
 
 
 //dotenv
@@ -33,9 +33,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 
-app.get("/",(req,res)=>{
-    return res.send("<h2>curd antd vite redux </h2>");
-});
+// app.get("/",(req,res)=>{
+//     return res.send("<h2>curd antd vite redux </h2>");
+// });
+
 //route
 app.use("/api",classRouter);
 app.use("/api",studentRourter);
@@ -44,4 +45,10 @@ app.use("/api",studentRourter);
 //     console.log(`server running on ${port}`);
 // })
 
-export default createServer(app);
+app.get('*',(req,res,next)=>{
+    res.status(200).json({
+      message:'bad request'
+    })
+});
+
+export default app;
